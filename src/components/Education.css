@@ -13,7 +13,7 @@
 }
 
 .edu-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-left-color: var(--accent-primary);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }

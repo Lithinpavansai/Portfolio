@@ -79,7 +79,7 @@
 
 .social-icon:hover {
     color: var(--accent-primary);
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(102, 252, 241, 0.2);
     border-color: rgba(102, 252, 241, 0.3);
 }
@@ -109,7 +109,7 @@
     border-radius: 50%;
     box-shadow: 0 0 40px var(--accent-glow);
     z-index: 2;
-    animation: pulse 3s infinite alternate;
+    animation: pulse 4s ease-in-out infinite alternate;
 }
 
 .orbit {
@@ -205,11 +205,24 @@
     0% {
         box-shadow: 0 0 20px var(--accent-glow);
         transform: scale(1);
+        opacity: 0.85;
     }
 
     100% {
         box-shadow: 0 0 50px var(--accent-glow);
-        transform: scale(1.05);
+        transform: scale(1.03);
+        opacity: 1;
+    }
+}
+
+/* Reduced Motion Override for Hero Elements */
+@media (prefers-reduced-motion: reduce) {
+    .visual-core,
+    .orbit-1,
+    .orbit-2,
+    .floating-badge {
+        animation: none !important;
+        transform: none !important;
     }
 }
 

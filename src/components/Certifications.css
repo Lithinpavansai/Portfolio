@@ -1,6 +1,6 @@
 .cert-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 1.5rem;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .cert-item:hover {
-    transform: translateX(10px);
+    transform: translateY(-3px);
     border-left: 4px solid var(--accent-secondary);
     background: rgba(17, 24, 39, 0.9);
 }
@@ -55,7 +55,7 @@
     }
 
     .cert-item:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         border-left: 1px solid var(--glass-border);
         border-bottom: 4px solid var(--accent-primary);
     }

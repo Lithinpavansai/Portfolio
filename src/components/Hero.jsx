@@ -34,7 +34,7 @@ const Hero = () => {
                     </p>
                     <div className="hero-cta">
                         <motion.a 
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.95 }}
                             href="#projects" 
                             className="button-primary"
@@ -42,7 +42,7 @@ const Hero = () => {
                             View My Work
                         </motion.a>
                         <motion.a 
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.95 }}
                             href="/Lithin_resume.docx" 
                             download="Lithin_resume.docx" 
@@ -52,7 +52,7 @@ const Hero = () => {
                             <Download size={18} /> Download CV
                         </motion.a>
                         <motion.a 
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.95 }}
                             href="#contact" 
                             className="button-outline"
@@ -68,7 +68,7 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.6 }}
                     >
                         <motion.a 
-                            whileHover={{ y: -5, scale: 1.1 }}
+                            whileHover={{ y: -3, scale: 1.03 }}
                             href="https://github.com/Pavansailithen" 
                             target="_blank" 
                             rel="noopener noreferrer" 
@@ -78,7 +78,7 @@ const Hero = () => {
                             <Github size={24} />
                         </motion.a>
                         <motion.a 
-                            whileHover={{ y: -5, scale: 1.1 }}
+                            whileHover={{ y: -3, scale: 1.03 }}
                             href="https://linkedin.com/in/lithinpavansai" 
                             target="_blank" 
                             rel="noopener noreferrer" 
@@ -97,17 +97,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
                     <div className="visual-circle">
-                        <motion.div 
-                            className="visual-core"
-                            animate={{
-                                scale: [1, 1.05, 1],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                        ></motion.div>
+                        <div className="visual-core"></div>
                         <div className="orbit orbit-1"></div>
                         <div className="orbit orbit-2"></div>
                         
@@ -115,7 +105,7 @@ const Hero = () => {
                             className="floating-badge badge-1"
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            whileHover={{ scale: 1.1, border: '1px solid var(--accent-primary)' }}
+                            whileHover={{ scale: 1.03, border: '1px solid var(--accent-primary)' }}
                             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
                         >
                             <Shield size={16} style={{ color: 'var(--accent-primary)' }} />
@@ -126,7 +116,7 @@ const Hero = () => {
                             className="floating-badge badge-2"
                             animate={{ y: [0, 10, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                            whileHover={{ scale: 1.1, border: '1px solid var(--accent-secondary)' }}
+                            whileHover={{ scale: 1.03, border: '1px solid var(--accent-secondary)' }}
                             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
                         >
                             <Cloud size={16} style={{ color: 'var(--accent-secondary)' }} />
@@ -137,7 +127,7 @@ const Hero = () => {
                             className="floating-badge badge-3"
                             animate={{ y: [-10, 0, -10] }}
                             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                            whileHover={{ scale: 1.1, border: '1px solid var(--accent-primary)' }}
+                            whileHover={{ scale: 1.03, border: '1px solid var(--accent-primary)' }}
                             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
                         >
                             <Cpu size={16} style={{ color: 'var(--accent-primary)' }} />

@@ -114,7 +114,7 @@ Agent execution completed in 14.8 seconds.`
                                         <div className="project-row-links">
                                             {project.github !== '#' && (
                                                 <motion.a 
-                                                    whileHover={{ scale: 1.05 }}
+                                                    whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.95 }}
                                                     href={project.github} 
                                                     target="_blank" 
@@ -127,7 +127,7 @@ Agent execution completed in 14.8 seconds.`
                                             )}
                                             {project.demo !== '#' && (
                                                 <motion.a 
-                                                    whileHover={{ scale: 1.05 }}
+                                                    whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.95 }}
                                                     href={project.demo} 
                                                     target="_blank" 

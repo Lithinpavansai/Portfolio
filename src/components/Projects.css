@@ -44,6 +44,13 @@
     order: 1;
 }
 
+.project-details-col,
+.project-visual-col {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
 /* Details styles */
 .project-row-title {
     font-size: 1.6rem;
@@ -155,6 +162,7 @@
 /* Mock Terminal */
 .mock-terminal {
     width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
@@ -255,5 +263,18 @@
     .btn-outline-cyber, .btn-primary-cyber {
         width: 100%;
         justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-row {
+        grid-template-columns: 1fr !important;
+    }
+    .project-row-tech {
+        flex-wrap: wrap !important;
+    }
+    .mock-terminal {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }

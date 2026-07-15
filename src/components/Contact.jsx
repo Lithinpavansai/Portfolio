@@ -5,15 +5,49 @@ import './Contact.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [errors, setErrors] = useState({ name: '', email: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
+    const validate = () => {
+        let tempErrors = { name: '', email: '', message: '' };
+        let isValid = true;
+
+        if (!formData.name.trim()) {
+            tempErrors.name = 'Name is required.';
+            isValid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email.trim()) {
+            tempErrors.email = 'Email is required.';
+            isValid = false;
+        } else if (!emailRegex.test(formData.email)) {
+            tempErrors.email = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+        if (!formData.message.trim()) {
+            tempErrors.message = 'Message is required.';
+            isValid = false;
+        }
+
+        setErrors(tempErrors);
+        return isValid;
+    };
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        if (errors[e.target.name]) {
+            setErrors({ ...errors, [e.target.name]: '' });
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validate()) {
+            return;
+        }
         setIsSubmitting(true);
 
         try {
@@ -29,6 +63,7 @@ const Contact = () => {
             if (response.ok) {
                 setSubmitted(true);
                 setFormData({ name: '', email: '', message: '' });
+                setErrors({ name: '', email: '', message: '' });
                 setTimeout(() => setSubmitted(false), 5000);
             } else {
                 alert("Oops! There was a problem submitting your form.");
@@ -124,35 +159,45 @@ const Contact = () => {
                                 </button>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="contact-form">
+                            <form onSubmit={handleSubmit} className="contact-form" noValidate>
                                 <div className="form-group">
-                                    <label htmlFor="name">Name</label>
+                                    <label htmlFor="name">
+                                        Name <span style={{ color: 'var(--accent-primary)' }}>*</span>
+                                    </label>
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
+                                        autoComplete="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="form-control"
+                                        className={`form-control ${errors.name ? 'form-control-error' : ''}`}
                                     />
+                                    {errors.name && <span className="error-message">{errors.name}</span>}
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="email">Email</label>
+                                    <label htmlFor="email">
+                                        Email <span style={{ color: 'var(--accent-primary)' }}>*</span>
+                                    </label>
                                     <input
                                         type="email"
                                         id="email"
                                         name="email"
+                                        autoComplete="email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="form-control"
+                                        className={`form-control ${errors.email ? 'form-control-error' : ''}`}
                                     />
+                                    {errors.email && <span className="error-message">{errors.email}</span>}
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="message">Message</label>
+                                    <label htmlFor="message">
+                                        Message <span style={{ color: 'var(--accent-primary)' }}>*</span>
+                                    </label>
                                     <textarea
                                         id="message"
                                         name="message"
@@ -160,12 +205,13 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        className="form-control"
+                                        className={`form-control ${errors.message ? 'form-control-error' : ''}`}
                                     ></textarea>
+                                    {errors.message && <span className="error-message">{errors.message}</span>}
                                 </div>
 
                                 <motion.button 
-                                    whileHover={{ scale: 1.03 }}
+                                    whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.97 }}
                                     type="submit" 
                                     className="button-primary submit-btn" 

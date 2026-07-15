@@ -103,30 +103,23 @@ const Skills = () => {
                             key={index} 
                             className="skill-card section-glass"
                             variants={cardVariants}
-                            whileHover={{ y: -5, borderColor: 'var(--glass-border-hover)' }}
+                            whileHover={{ y: -3, borderColor: 'var(--glass-border-hover)' }}
                         >
                             <div className="skill-icon-wrapper">
                                 <span className="skill-icon">{category.icon}</span>
                             </div>
                             <h3>{category.title}</h3>
-                            <div className="skill-list">
+                            <div className="skill-tags-list">
                                 {category.skills.map((skill, i) => (
-                                    <div key={i} className="skill-item">
-                                        <div className="skill-info">
-                                            <span className="skill-name">{skill.name}</span>
-                                            <span className="skill-level">{skill.level}</span>
-                                        </div>
-                                        <div className="skill-progress-track">
-                                            <motion.div
-                                                className="skill-progress-fill"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.percentage}%` }}
-                                                viewport={{ once: true }}
-                                                transition={{ duration: 1, delay: 0.2 + (i * 0.05), ease: "easeOut" }}
-                                                title={`${skill.percentage}% Proficiency`}
-                                            ></motion.div>
-                                        </div>
-                                    </div>
+                                    <span 
+                                        key={i} 
+                                        className="skill-tag"
+                                        style={{ 
+                                            color: index % 2 === 0 ? 'var(--accent-primary)' : 'var(--accent-secondary)'
+                                        }}
+                                    >
+                                        {skill.name}
+                                    </span>
                                 ))}
                             </div>
 

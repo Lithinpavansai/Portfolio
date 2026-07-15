@@ -131,3 +131,19 @@
         align-items: center;
     }
 }
+
+/* Form Validation Styles */
+.form-control-error {
+    border-color: #EF4444 !important;
+}
+
+.form-control-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.35) !important;
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
