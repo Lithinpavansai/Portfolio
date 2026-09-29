@@ -164,11 +164,20 @@ a:hover {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+.section-header-wrap {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   position: relative;
+}
+
+.section-header-wrap .section-title {
+  margin-bottom: 1.25rem;
 }
 
 .section-title::after {
@@ -181,6 +190,23 @@ a:hover {
   height: 4px;
   background: var(--accent-primary);
   border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  max-width: 1000px;
+  margin: 0.75rem auto 0 auto;
+  line-height: 1.6;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .section-subtitle {
+    white-space: normal;
+    max-width: 700px;
+  }
 }
 
 section {

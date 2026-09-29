@@ -41,8 +41,16 @@
 
 .contact-detail-item a,
 .contact-detail-item span:not(.contact-icon) {
-    font-size: 1.1rem;
-    color: var(--text-primary);
+    font-size: 1.05rem;
+    color: var(--text-bright);
+}
+
+.contact-availability-card {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
 }
 
 .contact-form-container {

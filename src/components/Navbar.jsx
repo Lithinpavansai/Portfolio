@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Terminal } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -8,7 +9,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,9 +38,12 @@ const Navbar = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           href="#home" 
-          className="navbar-logo text-gradient"
+          className="navbar-logo"
         >
-          Lithin Pavan Sai
+          <div className="logo-symbol">
+            <Terminal size={18} style={{ color: 'var(--accent-primary)' }} />
+          </div>
+          <span className="text-gradient font-bold">Lithin Pavan Sai</span>
         </motion.a>
 
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
@@ -51,11 +55,18 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 * index }}
+              transition={{ duration: 0.4, delay: 0.05 * index }}
             >
               {link.name}
             </motion.a>
           ))}
+          <a 
+            href="#contact" 
+            className="nav-cta-btn"
+            onClick={() => setMenuOpen(false)}
+          >
+            Hire Me
+          </a>
         </div>
 
         <button

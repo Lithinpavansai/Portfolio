@@ -115,30 +115,40 @@ const Contact = () => {
                     viewport={{ once: true, margin: "-100px" }}
                 >
                     <motion.div className="contact-info" variants={itemVariants}>
-                        <h3 className="contact-heading">Let's Connect</h3>
+                        <h3 className="contact-heading">Let's Connect & Build</h3>
                         <p className="contact-desc">
-                            Whether you have a question, a project opportunity, or just want to say hi, my inbox is always open. I'll try my best to get back to you!
+                            I am currently <strong style={{ color: 'var(--accent-primary)' }}>Available Immediately</strong> for full-time Software Developer, Backend, and AI Engineering roles. Whether you have an open role, an interesting project, or want to collaborate, feel free to reach out!
                         </p>
 
                         <div className="contact-details">
                             <div className="contact-detail-item">
-                                <span className="contact-icon">
-                                    <Mail size={20} style={{ color: 'var(--accent-primary)' }} />
-                                </span>
-                                <a href="mailto:lithenpavansai98@gmail.com">lithenpavansai98@gmail.com</a>
+                                 <span className="contact-icon">
+                                     <Mail size={20} style={{ color: 'var(--accent-primary)' }} />
+                                 </span>
+                                 <a href="mailto:lithinpavansai04@gmail.com">lithinpavansai04@gmail.com</a>
                             </div>
                             <div className="contact-detail-item">
-                                <span className="contact-icon">
-                                    <Phone size={20} style={{ color: 'var(--accent-primary)' }} />
-                                </span>
-                                <a href="tel:+919290108844">+91 9290108844</a>
+                                 <span className="contact-icon">
+                                     <Phone size={20} style={{ color: 'var(--accent-primary)' }} />
+                                 </span>
+                                 <a href="tel:+919290108844">+91 9290108844</a>
                             </div>
                             <div className="contact-detail-item">
-                                <span className="contact-icon">
-                                    <MapPin size={20} style={{ color: 'var(--accent-primary)' }} />
-                                </span>
-                                <span>Vijayawada, India</span>
+                                 <span className="contact-icon">
+                                     <MapPin size={20} style={{ color: 'var(--accent-primary)' }} />
+                                 </span>
+                                 <span>Visakhapatnam, India</span>
                             </div>
+                        </div>
+
+                        <div className="contact-availability-card">
+                            <div className="status-badge" style={{ marginBottom: '0.5rem' }}>
+                                <span className="status-dot"></span>
+                                <span className="status-text">Available Immediately</span>
+                            </div>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-primary)', margin: 0 }}>
+                                Open to full-time engineering roles, backend contracts, and technical collaborations.
+                            </p>
                         </div>
                     </motion.div>
 

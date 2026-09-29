@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, ShieldCheck } from 'lucide-react';
+import { Award, ShieldCheck, Sparkles, ExternalLink, CheckCircle2 } from 'lucide-react';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -7,32 +7,18 @@ const Certifications = () => {
         {
             title: "Security Principles in Cloud Computing",
             issuer: "Google Cloud Skills Boost",
-            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg"
+            category: "Cloud Security & Infrastructure",
+            description: "Covers defense-in-depth, IAM policies, VPC security perimeters, resource isolation, and cloud compliance.",
+            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg",
+            verified: true
         },
         {
             title: "Build Modern Applications with Generative AI",
             issuer: "Google Cloud",
-            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg"
-        },
-        {
-            title: "Juniper Networking Cloud",
-            issuer: "Juniper Networks / EduSkills",
-            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/junipernetworks.svg"
-        },
-        {
-            title: "Palo Alto Cybersecurity (Cohort 9)",
-            issuer: "Palo Alto Networks / EduSkills",
-            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/paloaltonetworks.svg"
-        },
-        {
-            title: "Ethical Hacking (Cohort 10)",
-            issuer: "EduSkills Academy",
-            icon: "https://eduskillsfoundation.org/wp-content/uploads/2022/09/LOGO_EduSkills.png"
-        },
-        {
-            title: "Network Security Associate (Cohort 12)",
-            issuer: "Fortinet / EduSkills",
-            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fortinet.svg"
+            category: "Generative AI & LLM Systems",
+            description: "Focuses on prompt engineering, Vertex AI workflows, multimodal LLM architectures, and generative application design.",
+            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg",
+            verified: true
         }
     ];
 
@@ -41,13 +27,13 @@ const Certifications = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1
+                staggerChildren: 0.12
             }
         }
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 25 },
         visible: { 
             opacity: 1, 
             y: 0,
@@ -58,47 +44,62 @@ const Certifications = () => {
     return (
         <section id="certifications" className="certifications-section">
             <div className="container">
-                <motion.h2 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="section-title"
-                >
-                    Certifications
-                </motion.h2>
+                <div className="section-header-wrap">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="section-title"
+                    >
+                        Certifications
+                    </motion.h2>
+                    <p className="section-subtitle">
+                        Industry-recognized credentials in Cloud Computing, Security Principles, and Generative AI.
+                    </p>
+                </div>
 
                 <motion.div 
-                    className="cert-list"
+                    className="cert-grid"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                 >
                     {certifications.map((cert, index) => (
                         <motion.div 
                             key={index} 
-                            className="cert-item section-glass"
+                            className="cert-card section-glass"
                             variants={cardVariants}
-                            whileHover={{ scale: 1.02, borderColor: 'var(--glass-border-hover)' }}
+                            whileHover={{ y: -4, borderColor: 'var(--glass-border-hover)' }}
                         >
-                            <div className="cert-info">
+                            <div className="cert-card-header">
+                                <div className="cert-icon-circle">
+                                    <img 
+                                        src={cert.icon} 
+                                        alt={cert.issuer} 
+                                        className="cert-logo-img"
+                                        onError={(e) => { 
+                                            e.target.style.display = 'none'; 
+                                            e.target.nextElementSibling.style.display = 'flex'; 
+                                        }} 
+                                    />
+                                    <div className="cert-icon-fallback" style={{ display: 'none' }}>
+                                        <Award size={24} style={{ color: 'var(--accent-primary)' }} />
+                                    </div>
+                                </div>
+                                
+                                <div className="cert-status-badge">
+                                    <CheckCircle2 size={13} />
+                                    <span>Verified Credential</span>
+                                </div>
+                            </div>
+
+                            <div className="cert-content">
+                                <span className="cert-category-tag">{cert.category}</span>
                                 <h3 className="cert-title">{cert.title}</h3>
                                 <p className="cert-issuer text-gradient">{cert.issuer}</p>
-                            </div>
-                            <div className="cert-badge-wrapper" style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '10px', borderRadius: '50%', border: '1px solid var(--glass-border)' }}>
-                                <img 
-                                    src={cert.icon} 
-                                    alt={cert.issuer} 
-                                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%', filter: 'brightness(0.9) contrast(1.1)' }} 
-                                    onError={(e) => { 
-                                        e.target.style.display = 'none'; 
-                                        e.target.nextElementSibling.style.display = 'flex'; 
-                                    }} 
-                                />
-                                <div className="cert-icon-fallback" style={{ display: 'none', color: 'var(--accent-primary)', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                                    <Award size={20} />
-                                </div>
+                                <p className="cert-desc">{cert.description}</p>
                             </div>
                         </motion.div>
                     ))}
