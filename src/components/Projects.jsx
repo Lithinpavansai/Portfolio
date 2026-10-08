@@ -7,19 +7,17 @@ const Projects = () => {
         {
             title: 'SchemaForge — AI Schema Generation Platform',
             badge: 'AI & Systems Design',
-            keyMetric: 'Consolidated 5 LLM calls into 1 Single-Pass Pipeline',
+            keyMetric: '84/100 Avg Score | 100% Completion on 23 Prompts',
             bullets: [
-                'Built a single-pass LLM pipeline (Intent Extraction → System Design → Schema Generation → Refinement) that converts natural language into UI, API, DB, and Auth schemas in one JSON output; consolidated from 5 separate LLM calls into 1.',
-                'Built a runtime validator (0–100 score, 6 structural checks) and tested it against 23 prompts (standard + adversarial: contradictions, prompt injection, non-English, malformed input), reaching 100% completion at 84/100 avg score; manual review of 3 outputs caught a real bug — auto-generated business rules contradicting API endpoint permissions.',
-                'Manually audited 3 generated schemas end-to-end; found a cross-layer bug where auto-generated business rules restricted an endpoint to Admin-only while the endpoint config itself correctly allowed Customer access — confirmed the validator\'s role-consistency check was catching a real inconsistency, not a false positive.'
+                'Built a multi-stage LLM pipeline (Intent Extraction → System Design → Schema Generation → Refinement) that converts natural language into UI, API, DB, and Auth schemas returned as one JSON output.',
+                'Built a 0-100 runtime validator (6 structural checks); scored 23 prompts (20 run locally, 3 on the live deployment) including edge cases (vague, conflicting, gibberish, non-English): 100% completion, 84/100 average. A manual audit of 3 outputs caught a real cross-layer bug (Admin-only rule vs. config allowing Customer).'
             ],
             tech: ['FastAPI', 'Next.js', 'Groq API', 'Pydantic v2', 'Render', 'Vercel'],
-            github: 'https://github.com/Lithinpavansai',
-            demo: 'https://schemaforge-ai.vercel.app/',
+            github: 'https://github.com/Lithinpavansai/AI_Builder_Backend',
+            demo: 'https://schemaforge-ai.vercel.app',
             terminalTitle: 'schemaforge_pipeline.json',
             terminalContent: `{
-  "pipeline": "SINGLE_PASS_CONSOLIDATION",
-  "llm_calls_reduced": "5 -> 1 single JSON stream",
+  "pipeline": "MULTI_STAGE_LLM_PIPELINE",
   "stages": [
     "Intent Extraction", 
     "System Design", 
@@ -30,8 +28,9 @@ const Projects = () => {
   "runtime_validator": {
     "score": 84,
     "structural_checks": "6/6 PASSED",
-    "adversarial_tests": "23/23 completed (100%)",
-    "role_consistency_audit": "PASSED (No permission collisions)"
+    "prompt_test_suite": "23/23 completed (100%)",
+    "edge_cases_tested": ["vague", "conflicting", "gibberish", "non-English"],
+    "manual_audit": "Caught cross-layer Admin vs Customer role bug"
   }
 }`
         },
@@ -40,44 +39,44 @@ const Projects = () => {
             badge: 'Distributed Systems & Concurrency',
             keyMetric: '~1,058 jobs/sec | 8,153 → 0 Aborts',
             bullets: [
-                'Built an at-least-once notification dispatch pipeline with atomic Lua-based rate-limiting and idempotency locking, a three-state duplicate-send guard (SENDING/SENT) with fencing-token reconciliation to close race conditions under concurrent worker claims, and automatic dead-letter escalation to PostgreSQL after exhausted contention retries.',
-                'Replaced ARQ\'s default job-claiming path with a custom atomic Lua script, eliminating cross-worker WatchError contention (8,153 → 0 aborts at 4-way concurrency), and scaled sustained throughput to ~1,058 jobs/sec across 4 worker processes — root-caused via isolated benchmarking to Windows/Docker socket overhead rather than app logic or Redis capacity.'
+                'Built an at-least-once notification dispatch pipeline with atomic Lua rate-limiting and idempotency locking, a three-state duplicate-send guard with fencing tokens to close race conditions, and dead-letter escalation to PostgreSQL.',
+                'Replaced ARQ\'s default job-claiming path with a custom atomic Lua script, eliminating cross-worker WatchError contention (8,153 → 0 aborts at 4-way concurrency) and scaling sustained throughput to ~1,058 jobs/sec across 4 worker processes; isolated benchmarking traced the remaining bottleneck to Windows/Docker socket overhead, not app logic or Redis.'
             ],
-            tech: ['Python', 'FastAPI', 'Redis (Lua)', 'PostgreSQL', 'ARQ', 'Locust'],
+            tech: ['Python', 'FastAPI', 'Redis (Lua scripting)', 'PostgreSQL', 'ARQ', 'Locust'],
             github: 'https://github.com/Lithinpavansai/Distributed-Notification-Engine',
-            demo: '#',
+            demo: '',
             terminalTitle: 'locust_benchmark.log',
             terminalContent: `$ locust -f benchmark_dispatch.py --users 500 --spawn-rate 50
-[INFO] Atomic Lua Idempotency Lock: ACTIVE
-[INFO] Fencing Token Reconciliation: 0 Race Conditions
+[INFO] Atomic Lua Idempotency Lock & Rate Limiting: ACTIVE
+[INFO] Fencing Token Duplicate-Send Guard: 0 Race Conditions
 [INFO] Cross-worker WatchError: 8,153 -> 0 ABORTS (100% resolved)
 --------------------------------------------------------------------
 Concurrency: 4 worker processes (ARQ + custom Lua claim)
-Sustained Throughput: 1,058.4 req/sec
-Dead-letter Escalation: 0 unhandled (Automated PostgreSQL sync)
-Status: BENCHMARK COMPLETED (0% Failure Rate)`
+Sustained Throughput: 1,058 req/sec
+Dead-letter Escalation: PostgreSQL fallback active
+Status: BENCHMARK COMPLETED (Isolated overhead: Windows/Docker sockets)`
         },
         {
             title: 'SQL Query RL Environment',
             badge: 'Reinforcement Learning & AI',
-            keyMetric: '1.0 Score across all 3 tiers in 14.8s',
+            keyMetric: 'OpenEnv Compatible | 3 Grader Tiers',
             bullets: [
-                'Built an OpenEnv-compatible RL environment where AI agents debug and optimize broken SQL queries against a live SQLite database, deployed on HuggingFace Spaces.',
-                'Designed deterministic graders across 3 difficulty tiers (Easy / Medium / Hard) with partial reward signals; baseline LLM agent scored 1.0 on all tasks in 14.8 seconds.'
+                'Built an OpenEnv-compatible RL environment where AI agents debug and optimize broken SQL queries against a live SQLite database, deployed on HuggingFace Spaces with Docker.',
+                'Designed deterministic graders for 3 difficulty tiers with partial-reward signals; validated with a baseline LLM agent.'
             ],
             tech: ['Python', 'FastAPI', 'SQLite', 'Docker', 'Pydantic', 'HuggingFace Spaces', 'OpenAI API'],
             github: 'https://github.com/Lithinpavansai/sql-query-env',
-            demo: '#',
+            demo: 'https://huggingface.co/spaces/Lithinpavansai/sql-query-env',
             terminalTitle: 'sql_rl_gym_eval.py',
             terminalContent: `$ python evaluate_rl_env.py --env SqlQueryRL-v0 --db live_sqlite.db
-[INIT] OpenEnv wrapper initialized on HuggingFace Spaces
+[INIT] OpenEnv wrapper initialized on HuggingFace Spaces (Docker)
 [TEST-SUITE]:
-  -> Tier 1 (Easy): Syntax repair & table aliases      [SCORE: 1.0/1.0]
-  -> Tier 2 (Medium): Multi-table JOIN optimizations   [SCORE: 1.0/1.0]
-  -> Tier 3 (Hard): Window functions & subquery locks  [SCORE: 1.0/1.0]
+  -> Tier 1 (Easy): Syntax repair & table aliases      [PASS]
+  -> Tier 2 (Medium): Multi-table JOIN optimizations   [PASS]
+  -> Tier 3 (Hard): Complex subqueries & locks         [PASS]
 [BENCHMARK RESULT]:
-  Reward Signal: Partial + Deterministic
-  LLM Agent Final Score: 1.0 (All tasks solved in 14.8s)`
+  Graders: 3 Difficulty Tiers (Deterministic Partial Rewards)
+  Validation: Baseline LLM Agent Graded Successfully`
         }
     ];
 

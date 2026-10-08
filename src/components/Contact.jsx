@@ -117,7 +117,7 @@ const Contact = () => {
                     <motion.div className="contact-info" variants={itemVariants}>
                         <h3 className="contact-heading">Let's Connect & Build</h3>
                         <p className="contact-desc">
-                            I am currently <strong style={{ color: 'var(--accent-primary)' }}>Available Immediately</strong> for full-time Software Developer, Backend, and AI Engineering roles. Whether you have an open role, an interesting project, or want to collaborate, feel free to reach out!
+                            I am currently <strong style={{ color: 'var(--accent-primary)' }}>Available Immediately</strong> for full-time <strong>Developer Support</strong>, <strong>Solutions Engineering</strong>, and <strong>Backend Engineering</strong> roles. Whether you need someone who can diagnose auth, deployment, and concurrency failures or architect reliable distributed APIs, feel free to reach out!
                         </p>
 
                         <div className="contact-details">
@@ -137,7 +137,7 @@ const Contact = () => {
                                  <span className="contact-icon">
                                      <MapPin size={20} style={{ color: 'var(--accent-primary)' }} />
                                  </span>
-                                 <span>Visakhapatnam, India</span>
+                                 <span>Visakhapatnam, Andhra Pradesh, India</span>
                             </div>
                         </div>
 
@@ -147,7 +147,7 @@ const Contact = () => {
                                 <span className="status-text">Available Immediately</span>
                             </div>
                             <p style={{ fontSize: '0.85rem', color: 'var(--text-primary)', margin: 0 }}>
-                                Open to full-time engineering roles, backend contracts, and technical collaborations.
+                                Open to full-time Developer Support, Solutions Engineering, and Backend Developer opportunities worldwide.
                             </p>
                         </div>
                     </motion.div>

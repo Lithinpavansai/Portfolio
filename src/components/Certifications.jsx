@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, ShieldCheck, Sparkles, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { Award, ShieldCheck, Sparkles, ExternalLink, CheckCircle2, Clock } from 'lucide-react';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -7,18 +7,29 @@ const Certifications = () => {
         {
             title: "Security Principles in Cloud Computing",
             issuer: "Google Cloud Skills Boost",
-            category: "Cloud Security & Infrastructure",
-            description: "Covers defense-in-depth, IAM policies, VPC security perimeters, resource isolation, and cloud compliance.",
+            category: "Cloud Security & Architecture",
+            description: "Covers cloud defense-in-depth, IAM access control policies, VPC security perimeters, resource isolation, and cloud compliance.",
             icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg",
-            verified: true
+            status: "Verified Credential",
+            inProgress: false
         },
         {
-            title: "Build Modern Applications with Generative AI",
-            issuer: "Google Cloud",
+            title: "Generative AI: Google Cloud (Modern Applications)",
+            issuer: "Google Cloud / NEOSKILLZ Training",
             category: "Generative AI & LLM Systems",
-            description: "Focuses on prompt engineering, Vertex AI workflows, multimodal LLM architectures, and generative application design.",
+            description: "Intensive training program (May 18 – Jun 18, 2026) focusing on modern application architectures with Google Cloud generative AI models, prompt engineering, and LLM orchestration.",
             icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg",
-            verified: true
+            status: "Completed Training",
+            inProgress: false
+        },
+        {
+            title: "Google Cloud Cybersecurity Certificate",
+            issuer: "Google Cloud",
+            category: "Cybersecurity & Threat Mitigation",
+            description: "Comprehensive program covering SIEM tools, network defense, threat detection, incident response, and Python-based security automation.",
+            icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg",
+            status: "In Progress",
+            inProgress: true
         }
     ];
 
@@ -89,9 +100,9 @@ const Certifications = () => {
                                     </div>
                                 </div>
                                 
-                                <div className="cert-status-badge">
-                                    <CheckCircle2 size={13} />
-                                    <span>Verified Credential</span>
+                                <div className={`cert-status-badge ${cert.inProgress ? 'in-progress' : ''}`}>
+                                    {cert.inProgress ? <Clock size={13} /> : <CheckCircle2 size={13} />}
+                                    <span>{cert.status}</span>
                                 </div>
                             </div>
 

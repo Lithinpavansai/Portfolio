@@ -24,12 +24,12 @@ const About = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className="about-text">
-                        <h3 className="text-gradient">Innovating at the Intersection of AI, Cloud & Security</h3>
+                        <h3 className="text-gradient">Bridging Backend Engineering, Developer Support & Solutions</h3>
                         <p>
-                            I am a B.Tech Graduate in Computer Science & Engineering (Cybersecurity) with a strong passion for building resilient, intelligent software systems. With hands-on experience in developing scalable AI pipelines, full-stack applications, and managing secure cloud environments, I bridge the gap between sophisticated deployment and robust security.
+                            I am a Computer Science graduate (B.Tech, Cybersecurity, 2026) with hands-on backend experience in Python, FastAPI, REST APIs, PostgreSQL, Redis, and Docker, seeking Developer Support and Solutions Engineering roles. I diagnose auth, deployment, and concurrency failures and explain the fix in plain language.
                         </p>
                         <p>
-                            Whether it's engineering high-performance APIs with FastAPI, setting up agentic LLM workflows, or automating infrastructure security, I thrive on solving complex architectural challenges.
+                            From eliminating cross-worker contention in distributed notification engines and diagnosing live cloud deployment timeouts to validating multi-stage AI schema generation pipelines, I focus on system reliability, observable performance, and actionable root-cause analysis.
                         </p>
 
                         <div className="about-stats">

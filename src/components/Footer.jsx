@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-brand">
                         <h3 className="text-gradient">Lithin Pavan Sai Uddagiri</h3>
-                        <p>Building high-throughput distributed backend systems, production-grade LLM pipelines, and resilient cloud architectures.</p>
+                        <p>Diagnosing auth, deployment, and concurrency failures — building robust backend systems, distributed architectures, and AI pipelines.</p>
                     </div>
 
                     <div className="footer-nav">

@@ -53,7 +53,7 @@ const Education = () => {
                                 </div>
                                 <div className="edu-gpa-badge">
                                     <Award size={13} />
-                                    <span>GPA: <strong>7.54 / 10.0</strong></span>
+                                    <span>CGPA: <strong>7.54 / 10</strong></span>
                                 </div>
                             </div>
                         </div>

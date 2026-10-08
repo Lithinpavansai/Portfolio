@@ -1,6 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, ArrowRight, Shield, Cloud, Server, Terminal, CheckCircle2 } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, ArrowRight, Shield, Cloud, Server, Terminal, Wrench, Cpu, CheckCircle2 } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
@@ -21,7 +21,7 @@ const Hero = () => {
                         </div>
                         <div className="hero-location">
                             <MapPin size={14} className="location-icon" />
-                            <span>Visakhapatnam, India</span>
+                            <span>Visakhapatnam, Andhra Pradesh, India</span>
                         </div>
                     </div>
 
@@ -32,13 +32,11 @@ const Hero = () => {
                         <span className="hero-role-wrapper">
                             <TypeAnimation
                                 sequence={[
-                                    'Backend Developer',
+                                    'Developer Support Engineer',
                                     2200,
-                                    'Distributed Systems Engineer',
+                                    'Associate Solutions Engineer',
                                     2200,
-                                    'Software Developer',
-                                    2200,
-                                    'Cloud & Security Enthusiast',
+                                    'Technical Support Engineer (API-focused)',
                                     2200,
                                 ]}
                                 wrapper="span"
@@ -50,7 +48,7 @@ const Hero = () => {
                     </h1>
 
                     <p className="hero-subtitle">
-                        B.Tech in Computer Science & Engineering (Cybersecurity). Specializing in high-throughput distributed systems, atomic concurrency control, production-grade LLM pipelines, and resilient cloud architectures.
+                        Computer Science graduate (B.Tech, Cybersecurity, 2026) with hands-on backend experience in Python, FastAPI, REST APIs, PostgreSQL, Redis, and Docker, seeking Developer Support and Solutions Engineering roles. I diagnose auth, deployment, and concurrency failures and explain the fix in plain language.
                     </p>
 
                     <div className="hero-cta">
@@ -123,34 +121,38 @@ const Hero = () => {
                         <div className="orbit orbit-1"></div>
                         <div className="orbit orbit-2"></div>
                         
+                        {/* Badge 1: Developer Support Engineer */}
                         <motion.div 
                             className="floating-badge badge-1"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            whileHover={{ scale: 1.05, border: '1px solid var(--accent-primary)' }}
+                            animate={{ y: [0, -8, 0] }}
+                            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+                            whileHover={{ scale: 1.06, borderColor: 'var(--accent-primary)' }}
                         >
-                            <Shield size={16} style={{ color: 'var(--accent-primary)' }} />
-                            <span>Cybersecurity</span>
+                            <Wrench size={15} style={{ color: 'var(--accent-primary)' }} />
+                            <span>Developer Support Engineer</span>
                         </motion.div>
                         
+                        {/* Badge 2: Associate Solutions Engineer */}
                         <motion.div 
                             className="floating-badge badge-2"
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                            whileHover={{ scale: 1.05, border: '1px solid var(--accent-secondary)' }}
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                            whileHover={{ scale: 1.06, borderColor: 'var(--accent-secondary)' }}
                         >
-                            <Cloud size={16} style={{ color: 'var(--accent-secondary)' }} />
-                            <span>Distributed Cloud</span>
+                            <Cloud size={15} style={{ color: 'var(--accent-secondary)' }} />
+                            <span>Associate Solutions Engineer</span>
                         </motion.div>
 
+                        {/* Badge 3: Technical Support Engineer (API-focused) */}
                         <motion.div 
                             className="floating-badge badge-3"
-                            animate={{ y: [-10, 0, -10] }}
-                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                            whileHover={{ scale: 1.05, border: '1px solid var(--accent-primary)' }}
+                            animate={{ y: [-6, 0, -6] }}
+                            transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                            whileHover={{ scale: 1.06, borderColor: 'var(--accent-primary)' }}
                         >
-                            <Server size={16} style={{ color: 'var(--accent-primary)' }} />
-                            <span>Backend Developer</span>
+                            <Server size={15} style={{ color: 'var(--accent-primary)' }} />
+                            <span>Technical Support Engineer (API-focused)</span>
+
                         </motion.div>
                     </div>
                 </motion.div>

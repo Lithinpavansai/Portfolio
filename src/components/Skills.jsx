@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Layers, Database, Cpu, Wrench, Sparkles, CheckCircle } from 'lucide-react';
+import { Code2, Layers, Database, Cpu, Wrench, ShieldAlert, Sparkles, CheckCircle } from 'lucide-react';
 import './Skills.css';
 
 const Skills = () => {
@@ -17,7 +17,7 @@ const Skills = () => {
         {
             title: 'Databases & Cloud',
             icon: <Database size={22} style={{ color: 'var(--accent-primary)' }} />,
-            skills: ['MySQL', 'SQLite', 'PostgreSQL', 'Redis', 'GCP', 'Vercel', 'HuggingFace Spaces']
+            skills: ['MySQL', 'PostgreSQL', 'SQLite', 'NoSQL (Redis)', 'GCP', 'Vercel', 'Render', 'Supabase', 'HuggingFace Spaces']
         },
         {
             title: 'AI / ML',
@@ -27,7 +27,12 @@ const Skills = () => {
         {
             title: 'DevOps & Tools',
             icon: <Wrench size={22} style={{ color: 'var(--accent-primary)' }} />,
-            skills: ['Docker', 'Git', 'REST APIs', 'Locust']
+            skills: ['Docker', 'Git', 'REST APIs', 'Locust (load testing)', 'Agile']
+        },
+        {
+            title: 'API & Debugging Concepts',
+            icon: <ShieldAlert size={22} style={{ color: 'var(--accent-secondary)' }} />,
+            skills: ['HTTP/REST', 'JWT auth', 'RBAC', 'Rate Limiting', 'Idempotency', 'Load Testing']
         }
     ];
 

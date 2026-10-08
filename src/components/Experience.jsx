@@ -11,14 +11,30 @@ const Experience = () => {
             duration: 'Dec 2025 – Feb 2026',
             type: 'Internship',
             project: 'KIET Jira — Full-Stack Project Management Platform',
-            backendRepo: 'https://github.com/Lithinpavansai',
-            liveDemo: 'https://kiet-jira.vercel.app/',
+            teamContext: 'Agile team of 14 with mentor guidance',
+            backendRepo: 'https://github.com/Lithinpavansai/jira_backend',
+            liveDemo: '',
             bullets: [
-                'Contributed to backend development for KIET Jira — a full-stack project management platform — within an Agile team of 14, working on REST API endpoints, auth workflows, and DB schema design.',
-                'Resolved critical deployment issues including CORS misconfiguration, bcrypt version compatibility, DB connection timeouts, and global exception handling; containerized full stack with Docker for cloud deployment.',
-                'Implemented JWT-based auth UI and middleware logic with RBAC across Admin, Manager, and Developer tiers; optimized round-trip time through token caching and middleware optimization.'
+                'With mentor guidance, built KIET Jira, a full-stack project management platform, in an Agile team of 14: REST API endpoints, authentication workflows, and database schema design.',
+                'Implemented JWT-based authentication and RBAC across Admin, Manager, and Developer tiers; resolved CORS misconfiguration and bcrypt version compatibility issues; cut round-trip time through token caching.'
             ],
-            tech: ['FastAPI', 'Python', 'REST APIs', 'JWT & RBAC', 'Docker', 'PostgreSQL', 'Agile / Scrum']
+            tech: ['Python', 'FastAPI', 'REST APIs', 'JWT Auth', 'RBAC', 'PostgreSQL', 'Redis Token Caching', 'Agile']
+        },
+        {
+            role: 'KIET Jira, Team Project (after internship)',
+            company: 'KIET Group of Institutions',
+            location: 'Kakinada, Andhra Pradesh',
+            duration: 'Mar – Apr 2026',
+            type: 'Team Project',
+            project: 'KIET Jira — Cloud Deployment & Containerization',
+            teamContext: '14-member team, no mentor support',
+            backendRepo: 'https://github.com/Lithinpavansai/jira_backend',
+            liveDemo: '',
+            bullets: [
+                'Independently deployed the frontend on Vercel and the backend on Render, with Supabase for storage.',
+                'Containerized the full stack with Docker; diagnosed and fixed database connection timeouts in the deployed environment.'
+            ],
+            tech: ['Docker', 'Render', 'Vercel', 'Supabase (PostgreSQL)', 'FastAPI', 'Troubleshooting & Diagnostics']
         }
     ];
 
@@ -71,27 +87,31 @@ const Experience = () => {
                                 <div className="timeline-project-info">
                                     <span className="timeline-project-name">
                                         <Briefcase size={14} className="project-brief-icon" />
-                                        Project: <strong>{item.project}</strong>
+                                        <span><strong>{item.project}</strong> {item.teamContext && <span style={{ opacity: 0.8, fontSize: '0.85rem', fontWeight: 'normal' }}>• {item.teamContext}</span>}</span>
                                     </span>
                                     <div className="timeline-links">
-                                        <a 
-                                            href={item.backendRepo} 
-                                            target="_blank" 
-                                            rel="noreferrer" 
-                                            className="exp-link-pill"
-                                        >
-                                            <Github size={13} />
-                                            <span>Backend Repo</span>
-                                        </a>
-                                        <a 
-                                            href={item.liveDemo} 
-                                            target="_blank" 
-                                            rel="noreferrer" 
-                                            className="exp-link-pill exp-live"
-                                        >
-                                            <ExternalLink size={13} />
-                                            <span>Live Demo</span>
-                                        </a>
+                                        {item.backendRepo && (
+                                            <a 
+                                                href={item.backendRepo} 
+                                                target="_blank" 
+                                                rel="noreferrer" 
+                                                className="exp-link-pill"
+                                            >
+                                                <Github size={13} />
+                                                <span>Backend Repo</span>
+                                            </a>
+                                        )}
+                                        {item.liveDemo && (
+                                            <a 
+                                                href={item.liveDemo} 
+                                                target="_blank" 
+                                                rel="noreferrer" 
+                                                className="exp-link-pill exp-live"
+                                            >
+                                                <ExternalLink size={13} />
+                                                <span>Live Demo</span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 
